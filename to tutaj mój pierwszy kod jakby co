@@ -1,0 +1,21 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	string z;
+	while(getline(cin,z))
+	{
+	for(int i=0;i<z.length();i++)
+	{
+		if(z[i]!=' ')
+		
+			cout<<z[i];
+		
+		else if((z[i]==' ')&&(z[i+1]!=' ')&&z[i+1]>95)
+		z[i+1]=toupper(z[i+1]);
+	}
+	cout<<endl;
+	}
+
+	return 0;
+}
