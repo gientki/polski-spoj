@@ -1,0 +1,21 @@
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+	int t,n,liczba,wynik;
+	cin>>t;
+	for (int i=0;i<t;i++)
+	{
+		cin>>n;
+		 	for(int j=0;j<n;j++)
+			{
+				cin>>liczba;
+				wynik+=liczba;
+			}
+			cout<<wynik<<endl;
+			wynik=0;
+	}
+	return 0;
+}
