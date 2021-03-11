@@ -61,6 +61,6 @@ int main()
 	 }
 	return 0;
 	//liczby 1,3,7 oraz 9 mają taką właściwość że ich iloczyn przez liczby od 0 do 9 
-	//to liczba która w cyfrze jedności ma nie więcej nie mniej niż zakres od 0 do 9
+	//to liczba która w cyfrze jedności ma nie więcej nie mniej niż zakres od 0 do 9 w cyfrze jedności
 	//dlatego w przypadku nieznanych cyfr od 6 do 9 będzie to 1 możliwość na jedną nieznaną 10 możliwości na dwie itd(pod warunkiem że zamy 11 cyfrę)
 	}
