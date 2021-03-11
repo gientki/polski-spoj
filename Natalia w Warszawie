@@ -1,0 +1,66 @@
+#include<iostream>
+using namespace std;
+//pesel: pierwsze 6 data urodzenia (można je zapisać na 1 sposób nie zależnie od tego czy znane są pozostałe czy nie)
+//kolejne 7,8,9 można każdą zapisać na 10 sposobów od 0 do 9
+// cyfra 10 w peselu (przed ostatnia) określa płeć (dla dziewczynek to 0,2,4,6,8) czyli można ją zapisać na 5 sposobów 
+//ostatnia cyfra to liczba kontrolna która dla nas oznacza tyle że (jeśli jest podana) ogranicza dziesięciokrotnie możliwości wylosowania nr pesel dla cyfr 7,8,9
+// a pięciokrotnie dla 10 
+//np jeśli nie znamy 8 cyfry a znamy ostatnią to w miejsce 8 cyfry może być tylko jedna liczba
+//jeśli nie znamy dwóch czyli np 7 i 9 to w ich miejsuc może się znajdować tylko 10 kombinacji
+//w przypadku sytuacji w której nie znana byłaby ostatnia liczba było by to 100
+int znany_ostatni(string pp)
+{
+	int e=0,x=1;
+	for(int i=6;i<pp.length()-2;i++)
+	{
+		if(pp[i]=='?')
+		e+=1;
+	}
+	for(int i=1;i<e;i++)
+	{
+		x*=10;
+	}
+	if(pp[9]=='?')
+	x*=5;
+	if(e!=0)cout<<x<<endl;
+	if(e==0)cout<<1<<endl;
+}
+int nieznany_ostatni(string pp)
+{
+	int e=0,x=1;
+	for(int i=6;i<pp.length()-2;i++)
+	{
+		if(pp[i]=='?')
+		e+=1;
+	}
+	for(int i=1;i<e;i++)
+	{
+		x*=10;
+	}
+	if(pp[9]=='?')
+	x*=5;
+	if(e!=0)cout<<x*10<<endl;
+	if((e==0)||(x==0))cout<<x<<endl;
+}
+int main()
+{
+	int t,x=1;
+	string p;
+	cin>>t;
+	for (int i=0;i<t;i++)
+	{
+		cin>>p;
+			if(p[10]=='?')
+			{
+				nieznany_ostatni(p);
+			}
+			else if(p[10]!='?')
+			{
+			 	znany_ostatni(p);
+			}
+	 }
+	return 0;
+	//liczby 1,3,7 oraz 9 mają taką właściwość że ich iloczyn przez liczby od 0 do 9 
+	//to liczba która w cyfrze jedności ma nie więcej nie mniej niż zakres od 0 do 9
+	//dlatego w przypadku nieznanych cyfr od 6 do 9 będzie to 1 możliwość na jedną nieznaną 10 możliwości na dwie itd(pod warunkiem że zamy 11 cyfrę)
+	}
