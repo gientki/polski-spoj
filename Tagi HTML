@@ -1,0 +1,22 @@
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+	string tag;
+	while(getline(cin,tag))
+	{
+			for(int i=0;i<tag.length();i++)
+	{
+	if(tag[i]=='<') //ponieważ zmieniana bżedzie tylko część wyrazów mięczy znakami "<"z">" to tam bedziemy przeprowadzać operacje
+		while(tag[i]!='>')
+			{
+		if(tag[i]>95)
+				tag[i]-=32;	//robimy literę dużą ale tylko w przypadku sytuacji w której wiemy że litera jest mała
+						i++;
+					}	
+	}cout<<tag<<endl;
+	}
+    return 0;
+	}
