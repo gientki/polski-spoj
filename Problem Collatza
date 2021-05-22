@@ -1,0 +1,21 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int tab[10000],t,x=0,y=0;
+	cin>>t;
+	int *w=tab;
+	for(int i=0;i<t;i++)
+	{	cin>>*w;
+			while(*w>1)
+		{
+			if(*w%2==0)	 	*w/=2;
+			else if(*w%2!=0)	*w= *w*3+1;
+			y++;
+		}
+		cout<<y<<endl;
+			y=0;
+		w++;
+	}
+	return 0;
+}
