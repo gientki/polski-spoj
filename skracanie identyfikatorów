@@ -1,0 +1,122 @@
+#include<iostream>
+
+using namespace std;
+
+string upierdol(string y,int i)
+	{
+		string x;
+		
+		for(int j=0;j<i;j++)
+		{
+			x+=y[j];
+		}
+	i++;
+		for (int j=i;j<y.length();j++)
+		{
+			x+=y[j];
+		}
+	
+		return x;
+	}
+	string upierdol_c(string y,int i)
+	{
+			string x;
+		
+		for(int j=0;j<i;j++)
+		{
+			x+=y[j];
+		}
+		
+	i++;
+		for (int j=i;j<y.length();j++)
+		{
+			x+=y[j];
+		}
+	
+		return x;
+	}
+	string dopierdol(string y)
+	{
+		string x;
+		char t[6]={'a','e','i','o','u','y'};
+		int w,m;
+	for(int i=y.length();i>=0;i--)
+	{
+		for(int e=0;e<6;e++)
+		{
+			if(y[i]==t[e])
+			{
+				w=i;
+			}
+		}
+	}
+	for(int i=w+1;i<y.length();i++)
+	{
+		for(int j=0;j<6;j++)
+		{
+			if(t[j]==y[i])
+			m=i;
+		}
+	}
+	for(int i=0;i<m;i++)
+	{
+		x+=y[i];
+	}
+	for(int i=m+1;i<y.length();i++)
+	{
+		x+=y[i];
+	}
+		return x;
+	}
+int main()
+{
+	int n,z;
+	string y,x;
+	cin>>n>>y;	
+	z=n-y.length();
+//	cout<<z<<endl;
+	if(z<0)
+	for(int i=y.length()-1;i>=0;i--)
+	{
+		if(y[i]=='_')
+		{
+		
+			y=upierdol(y,i);
+			if(y.length()==n)
+			{
+				cout<<y;
+				exit(0);
+			}
+			}
+			
+	}
+	for(int i=y.length()-1;i>=0;i--)
+	{
+		if((y[i]>47)&&(y[i]<58))
+		{
+		
+			y=upierdol_c(y,i);
+			if(y.length()==n)
+			{
+				cout<<y;
+				exit(0);
+			}
+			}
+			
+	}
+	
+		for(int i=y.length()-1;i>=0;i--)
+	{
+		
+		y=dopierdol(y);
+		
+			if(y.length()==n)
+			{
+				cout<<y;
+				exit(0);
+			}
+			
+	}
+	cout<<y;
+	return 0;
+}
