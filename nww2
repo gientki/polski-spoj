@@ -1,0 +1,47 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+typedef unsigned long long ull;
+
+ull gcd(ull a, ull b) {
+    while (b != 0) {
+        ull temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+ull lcm(ull a, ull b) {
+    if (a == 0 || b == 0) {
+        return 0;
+    }
+    return (a / gcd(a, b)) * b; 
+}
+
+ull computeLCM(const vector<ull>& numbers) {
+    ull result = numbers[0];
+    for (size_t i = 1; i < numbers.size(); ++i) {
+        result = lcm(result, numbers[i]);
+        if (result == 0) {
+            return 0; 
+        }
+    }
+    return result;
+}
+
+int main() {
+    int testCases;
+    cin >> testCases;
+    while (testCases--) {
+        int n;
+        cin >> n;
+        vector<ull> numbers(n);
+        for (int i = 0; i < n; ++i) {
+            cin >> numbers[i];
+        }
+        cout << computeLCM(numbers) << endl;
+    }
+    return 0;
+}
